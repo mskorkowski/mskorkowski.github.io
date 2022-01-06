@@ -1,0 +1,506 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>View - Task list - relm4-store</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../01-birth.html"><strong aria-hidden="true">1.1.</strong> How the data stores came to life</a></li><li class="chapter-item expanded "><a href="../../02-goals.html"><strong aria-hidden="true">1.2.</strong> Goals</a></li><li class="chapter-item expanded "><a href="../../03-relm4-vs-store.html"><strong aria-hidden="true">1.3.</strong> relm4 vs store</a></li><li class="chapter-item expanded "><a href="../../04-application_architecture.html"><strong aria-hidden="true">1.4.</strong> Application architecture</a></li></ol></li><li class="chapter-item expanded "><a href="../../examples/index.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/01-setup.html"><strong aria-hidden="true">2.1.</strong> Setup</a></li><li class="chapter-item expanded "><a href="../../examples/01-todo/index.html"><strong aria-hidden="true">2.2.</strong> Simple todo 1</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/01-todo/01-model.html"><strong aria-hidden="true">2.2.1.</strong> Model</a></li><li class="chapter-item expanded "><a href="../../examples/01-todo/02-store.html"><strong aria-hidden="true">2.2.2.</strong> Store</a></li><li class="chapter-item expanded "><a href="../../examples/01-todo/03-task_list.html" class="active"><strong aria-hidden="true">2.2.3.</strong> View - Task list</a></li><li class="chapter-item expanded "><a href="../../examples/01-todo/04-main_window.html"><strong aria-hidden="true">2.2.4.</strong> View - Main window</a></li><li class="chapter-item expanded "><a href="../../examples/01-todo/05-main.html"><strong aria-hidden="true">2.2.5.</strong> main</a></li><li class="chapter-item expanded "><a href="../../examples/01-todo/06-configuration.html"><strong aria-hidden="true">2.2.6.</strong> configuration</a></li></ol></li><li class="chapter-item expanded "><a href="../../examples/02-todo/index.html"><strong aria-hidden="true">2.3.</strong> Simple todo 2</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/02-todo/01-generate-tasks.html"><strong aria-hidden="true">2.3.1.</strong> Generating tasks</a></li><li class="chapter-item expanded "><a href="../../examples/02-todo/02-updating-store-view.html"><strong aria-hidden="true">2.3.2.</strong> Updating store view</a></li><li class="chapter-item expanded "><a href="../../examples/02-todo/03-updating_taks_list.html"><strong aria-hidden="true">2.3.3.</strong> Updating task list</a></li></ol></li><li class="chapter-item expanded "><a href="../../examples/03-todo/index.html"><strong aria-hidden="true">2.4.</strong> Simple todo 3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../examples/03-todo/01-ordering.html"><strong aria-hidden="true">2.4.1.</strong> Ordering</a></li><li class="chapter-item expanded "><a href="../../examples/03-todo/02-custom_sorting.html"><strong aria-hidden="true">2.4.2.</strong> Custom sorting</a></li><li class="chapter-item expanded "><a href="../../examples/03-todo/03-view.html"><strong aria-hidden="true">2.4.3.</strong> View</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">relm4-store</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="view---task-list"><a class="header" href="#view---task-list">View - Task list</a></h1>
+<p>Our view will have a two parts. If you know <code>relm4</code> you will see lots of similarities here.</p>
+<ol>
+<li>Task widget and tasks list</li>
+<li>Main window</li>
+</ol>
+<p>I've decided to split the view this way so each part of implementation is easier to understand.</p>
+<h2 id="list-of-tasks"><a class="header" href="#list-of-tasks">List of tasks</a></h2>
+<p>All snippets in this section should go to <code>view/task_list.rs</code></p>
+<h3 id="list-of-imports"><a class="header" href="#list-of-imports">List of imports</a></h3>
+<p>There will be a lots of them here. I'm providing them here so they won't obstruct the examples later. We will cover all important parts later in this chapter.</p>
+<pre><code class="language-rust noplaypen">use reexport::gtk;
+use reexport::relm4;
+use reexport::relm4_macros;
+use store_view::View;
+
+use gtk::Box;
+use gtk::CheckButton;
+use gtk::Label;
+use gtk::Orientation;
+use gtk::prelude::BoxExt;
+use gtk::prelude::CheckButtonExt;
+use gtk::prelude::EntryExt;
+use gtk::prelude::EntryBufferExtManual;
+use gtk::prelude::OrientableExt;
+use gtk::prelude::WidgetExt;
+
+use relm4::Model as ViewModel;
+use relm4::send;
+use relm4::Sender;
+use relm4::Widgets;
+use relm4::WidgetPlus;
+use relm4_macros::widget;
+
+use record::Id;
+use record::Record;
+use store::StoreViewPrototype;
+use store::FactoryContainerWidgets;
+use store::DataStore;
+use store::Position;
+use store::window::PositionTrackingWindow;
+
+use crate::model::Task;
+use crate::store::Tasks;
+</code></pre>
+<h3 id="task-widget-and-task-list"><a class="header" href="#task-widget-and-task-list">Task widget and task list</a></h3>
+<p>Firstly we need to define structures which will keep our widgets around.</p>
+<pre><code class="language-rust noplaypen">type StoreMsg = store::StoreMsg&lt;Task&gt;;
+
+pub enum TaskMsg {
+    Toggle{
+        complete: bool,
+        id: Id&lt;Task&gt;,
+    },
+    New,
+}
+
+#[derive(Debug)]
+#[allow(dead_code)]
+pub struct TaskWidgets {
+    checkbox: CheckButton,
+    label: Label,
+    root: Box,
+}
+
+pub trait TasksListConfiguration {
+    type ParentViewModel: ViewModel;
+    fn get_tasks(parent_view_model: &amp;Self::ParentViewModel) -&gt; Tasks;
+}
+
+pub struct TasksListViewModel&lt;Config: TasksListConfiguration + 'static&gt; {
+    tasks: Tasks,
+    store_view: View&lt;Self&gt;,
+    new_task_description: gtk::EntryBuffer,
+}
+</code></pre>
+<p>Let's discuss it one by one.</p>
+<p>The first thing is definition of the <code>StoreMsg</code> type. In your code you will interact with store. Main goal of this type alias is to reduce amount of typing. All stores and store views are using <code>store::StoreMsg</code> to communicate between each other and using it is only way to affect state of the data store. <code>store::StoreMsg</code> is parametrized by the type of Record so you won't be able to send a message of the wrong type to the store.</p>
+<p>The second one is <code>TaskWidgets</code>. Exactly same structure you would be defining if you would use <code>relm4</code> factories. Checkbox to mark task as complete, label to keep task description and a box (root) to keep it together.</p>
+<p>The third one is <code>TasksListConfiguration</code>. It's part of the component pattern to allow more then one instance of the component to be shown at the same time. It contains a method <code>get_tasks</code> which will return instance of the <code>store::Store</code>.</p>
+<p>Finally <code>TasksListViewModel</code>. First really interesting things happens here. First attribute is <code>tasks</code> it's the data store which keeps all the data. We will need it to notify the store about status changes of the tasks. Second attribute is store_view. It will provide view into your store.</p>
+<h3 id="relm4model-implementation-for-taskslistviewmodel"><a class="header" href="#relm4model-implementation-for-taskslistviewmodel"><code>relm4::Model</code> implementation for <code>TasksListViewModel</code></a></h3>
+<p>This part is obvious</p>
+<pre><code class="language-rust noplaypen">impl&lt;Config: TasksListConfiguration&gt; ViewModel for TasksListViewModel&lt;Config&gt; {
+    type Msg = TaskMsg;
+    type Widgets = TasksListViewWidgets;
+    type Components = ();
+}
+</code></pre>
+<h3 id="storeviewprototype"><a class="header" href="#storeviewprototype"><code>StoreViewPrototype</code></a></h3>
+<p>In here we will implement <code>store::StoreViewPrototype</code> to provide a view for items in the store. You would use <code>StoreViewPrototype</code> trait in all the places where using pure <code>relm4</code> you would use <code>relm4::factory::FactoryPrototype</code>.</p>
+<p>Differences between the <code>relm4::factory::FactoryPrototype</code> and <code>store::StoreViewPrototype</code></p>
+<table><thead><tr><th align="left">What</th><th align="left">FactoryPrototype</th><th align="left">StoreViewPrototype</th></tr></thead><tbody>
+<tr><td align="left"><strong>Target of implementation</strong></td><td align="left">You implement it for the ViewModel.</td><td align="left">You implement it for whatever you like. This makes this interface behave more like configuration.</td></tr>
+<tr><td align="left"><strong>Data container</strong></td><td align="left"><code>type Factory</code> which points to data container in the ViewModel</td><td align="left"><code>type Store</code> which points to data container type. There is no requirement of it being inside of <code>ViewModel</code>.</td></tr>
+<tr><td align="left"><strong>Data visibility</strong></td><td align="left">All data in the factory are visible.</td><td align="left">Only part of data in the Store is visible. <code>type Window</code> defines how the view window behaves (more in chapter 2 and 3).</td></tr>
+<tr><td align="left">Method signature</td><td align="left">Since you implemented the factory for the ViewModel, it takes <code>self</code> as an argument. You create a widgets to display <code>self</code>. Second is key under which factory is going to find it. Key is unstable and managed by the factory.</td><td align="left">It's not bound to <code>self</code>. First is record for which widgets should be created. Second is position in the store. Position in the dataset at the time of widget generation. There is no guarantee to get the same widget in the future when asking store for record at the given position. Record is required to hold stable id by implementing <code>model::Identifialble</code>.</td></tr>
+</tbody></table>
+<p>Let's create a file <code>view/task.rs</code></p>
+<pre><code class="language-rust noplaypen">impl&lt;Config: TasksListConfiguration&gt; StoreViewPrototype 
+    for TasksListViewModel&lt;Config&gt; 
+{
+    type Store = Tasks;
+    type StoreView = View&lt;Self&gt;;
+    type RecordWidgets = TaskWidgets;
+    type Root = gtk::Box;
+    type View = gtk::Box;
+    type Window = PositionTrackingWindow;
+    type ViewModel = Self;
+    type ParentViewModel = Config::ParentViewModel;
+
+    fn init_store_view(
+        store: Self::Store, 
+        size: store::StoreSize, 
+        redraw_sender: Sender&lt;store::redraw_messages::RedrawMessages&gt;
+    ) -&gt; Self::StoreView {
+        View::new(store, size, redraw_sender)
+    }
+
+    fn generate(
+        record: &amp;Task,
+        _position: Position,
+        sender: Sender&lt;TaskMsg&gt;,
+    ) -&gt; Self::RecordWidgets {
+        let root = Box::builder()
+            .orientation(Orientation::Horizontal)
+            .build();
+
+        let checkbox = CheckButton::builder()
+            .margin_top(12)
+            .margin_start(12)
+            .margin_end(12)
+            .margin_bottom(12)
+            .active(record.completed)
+            .build();
+
+        {
+            let sender = sender.clone();
+            let id = record.get_id();
+
+            checkbox.connect_toggled(move |btn| {
+                send!(sender, TaskMsg::Toggle{
+                    id,
+                    complete: btn.is_active()
+                });
+            });
+        }
+
+        let label = Label::builder()
+            .margin_top(12)
+            .margin_start(12)
+            .margin_end(12)
+            .margin_bottom(12)
+            .label(&amp;record.description)
+            .build();
+
+        root.append(&amp;checkbox);
+        root.append(&amp;label);
+
+        TaskWidgets {
+            checkbox,
+            label,
+            root,
+        }
+    }
+
+    /// Function called when record is modified.
+    fn update_record(
+        record: Task,
+        _position: Position,
+        widgets: &amp;Self::RecordWidgets,
+    ) {
+        widgets.checkbox.set_active(record.completed);
+
+        let attrs = widgets.label.attributes().unwrap_or_default();
+        attrs.change(gtk::pango::Attribute::new_strikethrough(record.completed));
+        widgets.label.set_attributes(Some(&amp;attrs));
+    }
+
+    fn position(
+        _model: Task, 
+        _position: Position,
+    ) {}
+
+    /// Get the outermost widget from the widgets.
+    fn get_root(widgets: &amp;Self::RecordWidgets) -&gt; &amp;Self::Root {
+        &amp;widgets.root
+    }
+
+    fn update(
+        view_model: &amp;mut Self::ViewModel, 
+        msg: &lt;Self as ViewModel&gt;::Msg, 
+        _sender: Sender&lt;&lt;Self as ViewModel&gt;::Msg&gt;
+    ) {
+        match msg {
+            TaskMsg::New =&gt; {
+                let description = view_model.new_task_description.text();
+                let task = Task::new(description, false);
+                view_model.new_task_description.set_text(&quot;&quot;);
+                view_model.tasks.send(StoreMsg::Commit(task));
+            },
+            TaskMsg::Toggle{ complete, id } =&gt; {
+                let tasks = &amp;view_model.tasks;
+                if let Some(record) = tasks.get(&amp;id) {
+                    let mut updated = record.clone();
+                    updated.completed = complete;
+                    tasks.send(StoreMsg::Commit(updated));
+                }
+            },
+        }
+    }
+
+    fn init_view_model(
+        parent_view_model: &amp;Self::ParentViewModel, 
+        store_view: &amp;Self::StoreView
+    ) -&gt; Self {
+        TasksListViewModel{
+            tasks: Config::get_tasks(parent_view_model),
+            new_task_description: gtk::EntryBuffer::new(None),
+            store_view: store_view.clone(),
+        }
+    }
+}
+</code></pre>
+<p>Let's look at the first part of <code>StoreViewPrototype</code> implementation</p>
+<pre><code class="language-rust noplaypen">    type Store = Tasks;
+    type StoreView = View&lt;Self&gt;;
+    type RecordWidgets = TaskWidgets;
+    type Root = gtk::Box;
+    type View = gtk::Box;
+    type Window = PositionTrackingWindow;
+    type ViewModel = Self;
+    type ParentViewModel = Config::ParentViewModel;
+</code></pre>
+<table><thead><tr><th align="left">type name</th><th align="left">value</th><th align="left">meaning</th></tr></thead><tbody>
+<tr><td align="left">Store</td><td align="left"><code>Tasks</code></td><td align="left">This type provides information about which store type will be used. This itself also provides information abut the model which (<code>DataStoreBase::Model</code>) which is used by the related store and as the consequence this view. In relm4's <code>FactoryPrototype</code> you would provide factory type where your data would be stored.</td></tr>
+<tr><td align="left">StoreView</td><td align="left"><code>View&lt;TasksListViewModel&gt;</code></td><td align="left">This type provides information about which store view type will be used. In <code>relm4</code> this would be part of <code>FactoryPrototype</code>. It's responsible for providing view into the store</td></tr>
+<tr><td align="left">RecordWidgets</td><td align="left"><code>TaskWidgets</code></td><td align="left">The same as in relm4's <code>FactoryPrototype::Widgets</code>. Type of structure holding all widgets.</td></tr>
+<tr><td align="left">Root</td><td align="left"><code>gtk::Box</code></td><td align="left">Type of widget which is a root for all widgets kept in the <code>RecordWidgets</code>. Same as in <code>FactoryPrototype::Root</code>.</td></tr>
+<tr><td align="left">View</td><td align="left"><code>gtk::Box</code></td><td align="left">Type of widgets which will keep the list of widgets. (The widget to which factory should add widgets to). Same as in <code>FactoryPrototype::View</code>. There must exist implementations of <code>relm4::factory::FactoryView</code> and <code>relm4::factory::FactoryListView</code> for <code>View</code>.</td></tr>
+<tr><td align="left">Window</td><td align="left"><code>PositionTrackingWindow</code></td><td align="left">Describes how the view window will behave in case of new data. For now use <code>PositionTrackingWindow</code> with annotation that if you don't know what to use, this one is probably the one.</td></tr>
+<tr><td align="left">ViewModel</td><td align="left"><code>TasksListViewModel</code></td><td align="left">Provides information about type of view model used by implementation of the <code>StoreViewPrototype</code></td></tr>
+<tr><td align="left">ParentViewModel</td><td align="left"><code>Config::ParentViewModel</code></td><td align="left">Provides information about the parent view model. Used during initialization of the view model</td></tr>
+</tbody></table>
+<h4 id="init_store_view"><a class="header" href="#init_store_view"><code>init_store_view</code></a></h4>
+<p>This method is responsible for creating instance of the store view. In here you connect your view with store and make sure your view has all required properties.</p>
+<pre><code class="language-rust noplaypen">    fn init_store_view(
+        store: Self::Store, 
+        size: store::StoreSize, 
+        redraw_sender: Sender&lt;store::redraw_messages::RedrawMessages&gt;
+    ) -&gt; Self::StoreView {
+        View::new(store, size, redraw_sender)
+    }
+</code></pre>
+<h4 id="relm4factoryfactoryprototype"><a class="header" href="#relm4factoryfactoryprototype"><code>relm4::factory::FactoryPrototype</code></a></h4>
+<p>Next we implemented <code>generate</code>, <code>update_record</code>, <code>position</code> and <code>get_root</code> methods. Three methods <code>generate</code>, <code>position</code>, <code>get_root</code> are the same as in <code>FactoryPrototype</code>. <code>update_record</code> is the <code>update</code> method from <code>FactoryPrototype</code>.</p>
+<h4 id="update-and-init_view_model"><a class="header" href="#update-and-init_view_model"><code>update</code> and <code>init_view_model</code></a></h4>
+<p>This method is equivalent of <code>update</code> for <code>ComponentUpdate</code>.  <code>init_view_model</code> is <code>init_model</code> from <code>ComponentUpdate</code>.</p>
+<h3 id="tasklistviewwidgets"><a class="header" href="#tasklistviewwidgets">TaskListViewWidgets</a></h3>
+<p>Now we can create our widgets for showing whole list</p>
+<pre><code class="language-rust noplaypen">#[widget(visibility=pub, relm4=reexport::relm4)]
+impl&lt;Config: TasksListConfiguration&gt; 
+    Widgets&lt;TasksListViewModel&lt;Config&gt;, Config::ParentViewModel&gt; 
+    for TasksListViewWidgets 
+{
+    view!{
+        root = gtk::Box {
+            set_margin_all: 12,
+            set_orientation: gtk::Orientation::Vertical,
+            append = &amp;gtk::Entry::with_buffer(&amp;model.new_task_description) {
+                connect_activate(sender) =&gt; move |_| { 
+                    send!(sender, TaskMsg::New); 
+                } 
+            },
+            append = &amp;gtk::ScrolledWindow {
+                set_hexpand: true,
+                set_vexpand: true,
+                set_child: container = Some(&amp;gtk::Box) {
+                    set_orientation: gtk::Orientation::Vertical,
+                    factory!(model.store_view)
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>There are only two interesting things here. First <code>StoreView</code> is kind of relm4 factory.</p>
+<pre><code class="language-rust noplaypen">                    factory!(model.store_view)
+</code></pre>
+<p>Second is</p>
+<pre><code class="language-rust noplaypen">                set_child: container = Some(&amp;gtk::Box) {
+                    set_orientation: gtk::Orientation::Vertical,
+                    factory!(model.store_view)
+                }
+</code></pre>
+<p>In here we've named container handling our list of tasks. It's important so the component knows which element to provide to relm4's <code>Factory</code> generate method.</p>
+<p>Rest is classic relm4.</p>
+<h4 id="factorycontainerwidgets"><a class="header" href="#factorycontainerwidgets">FactoryContainerWidgets</a></h4>
+<p>Now we need to implement extra trait <code>store::FactoryContainerWidgets</code></p>
+<pre><code class="language-rust noplaypen">impl&lt;Config: TasksListConfiguration&gt; 
+    FactoryContainerWidgets&lt;TasksListViewModel&lt;Config&gt;&gt; 
+    for TasksListViewWidgets 
+{
+    fn container_widget(&amp;self) 
+        -&gt; &amp;&lt;TasksListViewModel&lt;Config&gt; as StoreViewPrototype&gt;::View 
+    {
+        &amp;self.container
+    }
+}
+</code></pre>
+<p>In here we return reference to the widget used to keep whole list of our tasks</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../examples/01-todo/02-store.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../examples/01-todo/04-main_window.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../examples/01-todo/02-store.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../examples/01-todo/04-main_window.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
