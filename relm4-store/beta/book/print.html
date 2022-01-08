@@ -167,8 +167,7 @@
 <p>There are two ways to read this book. First one is to follow the chapters in order. This will gently introduce you to all concepts required to use stores. Second way is to go directly to the part you are interested into. The examples in the book after chapter 1 are just the modifications of the code from previous chapter. Full code of examples you can find in the <code>examples folder</code>.</p>
 <h3 id="window-behavior"><a class="header" href="#window-behavior">Window behavior</a></h3>
 <ul>
-<li><a href="./03-todo/01-ordering.html">Description of window behavior</a></li>
-<li><a href="./appendix/internals/window-behavior.html">Implementing your own</a></li>
+<li><a href="./examples/03-todo/01-ordering.html">Description of window behavior</a></li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-it-came-to-existence"><a class="header" href="#how-it-came-to-existence">How it came to existence</a></h1>
 <p>It's mid of 2021. I've started to learn Rust for a second time. This time I had an idea for an internal project for my company. I needed to create an gui application.</p>
@@ -1484,7 +1483,76 @@ Ease proof that we didn't make a mistake.</p>
 different configuration and different needs. Hard coding that into <code>Default</code> would be exactly what Rust designers did to make our life hard while implementing our own
 version of the data store.</p>
 <p>Whole code after this step can be found in examples <code>todo_3_sorted_store</code>.</p>
-<div style="break-before: page; page-break-before: always;"></div>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="view"><a class="header" href="#view">View</a></h1>
+<p>Now we need an ability to toggle the order of tasks in the view. So we will add two buttons one to sort ascending and other one to sort descending.</p>
+<p>Let's start with imports. We need to add</p>
+<pre><code class="language-rust noplaypen">use gtk::prelude::ButtonExt;
+use relm4::send;
+use store::OrderedStore;
+
+use crate::store::OrderTasksBy; 
+</code></pre>
+<p>Since we need to sort tasks we need to add new messages to the <code>MainWindowMsg</code>.</p>
+<pre><code class="language-rust noplaypen">pub enum MainWindowMsg {
+    ASC,
+    DESC,
+}
+</code></pre>
+<p>Now we need to handle new messages in the <code>update</code> method of the <code>MainWindowViewModel</code></p>
+<pre><code class="language-rust noplaypen">impl AppUpdate for MainWindowViewModel {
+    fn update(
+        &amp;mut self, 
+        msg: Self::Msg , 
+        _components: &amp;Self::Components, 
+        _sender: Sender&lt;Self::Msg&gt;
+    ) -&gt; bool {
+        match msg  {
+            MainWindowMsg::ASC =&gt; {
+                self.tasks.set_order(
+                    OrderTasksBy::Name{ascending: true}
+                )
+            },
+            MainWindowMsg::DESC =&gt; {
+                self.tasks.set_order(
+                    OrderTasksBy::Name{ascending: false}
+                )
+            }
+        }
+
+        true
+    }
+}
+</code></pre>
+<p><code>SortedInMemoryStore</code> implements <code>OrderedStore</code> which provides a method <code>set_order</code> which you can use to set order of elements in the store. Implementation of the
+<code>set_order</code> will take care of propagating the knowledge about the changes to the store view and in consequence render it on the screen.</p>
+<p>Only thing left it to update our <code>MainWindowWidgets</code> so it can send the messages to sort our view.</p>
+<pre><code class="language-rust noplaypen">#[widget(visibility=pub, relm4=relm4)]
+impl Widgets&lt;MainWindowViewModel, ()&gt; for MainWindowWidgets {
+    view!{
+        root = gtk::ApplicationWindow {
+            set_child: Some(components.tasks_list.root_widget()),
+            set_titlebar= Some(&amp;gtk::HeaderBar){
+                set_title_widget = Some(&amp;gtk::Label::new(Some(&quot;todo_3&quot;))){},
+                pack_end = &amp;gtk::Button::from_icon_name(Some(&quot;view-sort-ascending&quot;)) {
+                    connect_clicked(sender) =&gt; move |_| {
+                        send!(sender, MainWindowMsg::ASC)
+                    },
+                },
+                pack_end = &amp;gtk::Button::from_icon_name(Some(&quot;view-sort-descending&quot;)) {
+                    connect_clicked(sender) =&gt; move |_| {
+                        send!(sender, MainWindowMsg::DESC)
+                    },
+                },
+            },
+            set_default_size: args!(350, 800),
+        }
+    }
+}
+</code></pre>
+<p>To the titlebar of the main window we've added two buttons which will trigger sorting of the list. If you try adding new element to the list you will find that it's
+being inserted accordingly to the state of the data store.</p>
+<p>As always full code can be found in examples as <code>todo_3</code>.</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
