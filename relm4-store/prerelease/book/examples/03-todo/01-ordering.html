@@ -188,7 +188,7 @@ of data.</p>
 <p>All examples start with data store containing data <code>[0-&gt;a, 1-&gt;b, 2-&gt;c, 3-&gt;d, 4-&gt;e, 5-&gt;f, 6-&gt;g]</code>. Our view shows the range <code>[2, 5)</code> so user can see <code>[c, d, e]</code>.</p>
 <p>If you add the record at <code>1-&gt;a'</code> then change would be ignored since distance from the end of the data did not change.</p>
 <p>If you add the record inside the data range for example <code>3-&gt;c'</code> then the data store looks like <code>[0-&gt;a, 1-&gt;b, 2-&gt;c, 3-&gt;c', 4-&gt;d, 5-&gt;e, 6-&gt;f, 7-&gt;g]</code> this means that
-keep the distance from the end we need to slide the window to the right so the range would be <code>[3, 6)</code> which in consequence show the user a data <code>[c', d, e]</code>.</p>
+to keep the distance from the end we need to slide the window to the right so the range would be <code>[3, 6)</code> which in consequence show the user a data <code>[c', d, e]</code>.</p>
 <p>If you add the record at position after the data range shown to the user, for example <code>7-&gt;h</code> to keep the distance from the end we need to slide the window to the
 right so user would see <code>[d. e. f]</code>.</p>
 <p>It's intended for log like views. It's useful in special cases.</p>
