@@ -711,6 +711,9 @@
   .mt-\[calc\(var\(--spacing\)\*6\.7\)\] {
     margin-top: calc(var(--spacing) * 6.7);
   }
+  .ml-6 {
+    margin-left: calc(var(--spacing) * 6);
+  }
   .block {
     display: block;
   }
@@ -745,8 +748,8 @@
   .w-5\.5 {
     width: calc(var(--spacing) * 5.5);
   }
-  .w-80 {
-    width: calc(var(--spacing) * 80);
+  .w-61 {
+    width: calc(var(--spacing) * 61);
   }
   .w-96 {
     width: calc(var(--spacing) * 96);
@@ -856,6 +859,14 @@
     border-block-style: var(--tw-border-style);
     border-block-width: 1px;
   }
+  .border-l-0 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 0px;
+  }
+  .border-l-3 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 3px;
+  }
   .border-solid {
     --tw-border-style: solid;
     border-style: solid;
@@ -877,6 +888,12 @@
   }
   .border-transparent {
     border-color: transparent;
+  }
+  .border-l-forgegray-50 {
+    border-left-color: var(--color-forgegray-50);
+  }
+  .border-l-forgegray-800 {
+    border-left-color: var(--color-forgegray-800);
   }
   .bg-forgeblue-200 {
     background-color: var(--color-forgeblue-200);
@@ -945,14 +962,11 @@
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
   }
-  .pl-0 {
-    padding-left: calc(var(--spacing) * 0);
+  .pb-2 {
+    padding-bottom: calc(var(--spacing) * 2);
   }
   .pl-2\.5 {
     padding-left: calc(var(--spacing) * 2.5);
-  }
-  .pl-3 {
-    padding-left: calc(var(--spacing) * 3);
   }
   .pl-6 {
     padding-left: calc(var(--spacing) * 6);
@@ -1007,6 +1021,9 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .text-forgegray-50 {
+    color: var(--color-forgegray-50);
   }
   .text-forgegray-200 {
     color: var(--color-forgegray-200);
@@ -1128,6 +1145,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-forgeblue-100);
+      }
+    }
+  }
+  .hover\:text-forgeblue-300 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-forgeblue-300);
       }
     }
   }
@@ -1515,8 +1539,10 @@
 }
 @layer components {
   .forge-menu-highlight {
-    background-color: var(--color-forgeblue-200);
-    color: var(--color-forgeblue-950);
+    border-left-color: var(--color-forgegray-50);
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-forgegray-50);
   }
 }
 .scrollbox:has(.scrollable) {
