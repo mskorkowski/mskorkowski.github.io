@@ -40,8 +40,6 @@
     --text-7xl--line-height: 1;
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
-    --text-9xl: 8rem;
-    --text-9xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --radius-xs: 0.125rem;
@@ -447,8 +445,6 @@
     --text-7xl--line-height: 1;
     --text-8xl: 6rem;
     --text-8xl--line-height: 1;
-    --text-9xl: 8rem;
-    --text-9xl--line-height: 1;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --radius-xs: 0.125rem;
@@ -1267,13 +1263,9 @@
     font-size: var(--text-7xl);
     line-height: var(--tw-leading, var(--text-7xl--line-height));
   }
-  @media (width >= 80rem) {
+  @media (width >= 96rem) {
     font-size: var(--text-8xl);
     line-height: var(--tw-leading, var(--text-8xl--line-height));
-  }
-  @media (width >= 96rem) {
-    font-size: var(--text-9xl);
-    line-height: var(--tw-leading, var(--text-9xl--line-height));
   }
 }
 .markdown h1:first-child:has(+ h1) {
@@ -1519,6 +1511,12 @@
   &:hover {
     box-shadow: 0 1px 0 0.5px var(--kbd-color-border);
     top: 1px;
+  }
+}
+@layer components {
+  .forge-menu-highlight {
+    background-color: var(--color-forgeblue-200);
+    color: var(--color-forgeblue-950);
   }
 }
 .scrollbox:has(.scrollable) {
