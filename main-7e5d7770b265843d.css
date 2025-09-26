@@ -459,6 +459,7 @@
     --color-forgegray-100: hsl(207deg 20.00% 94.28%);
     --color-forgegray-200: hsl(207deg 20.00% 88.59%);
     --color-forgegray-300: hsl(207deg 20.00% 80.63%);
+    --color-forgegray-400: hsl(207deg 20.00% 68.79%);
     --color-forgegray-700: hsl(207deg 20.00% 37.41%);
     --color-forgegray-800: hsl(207deg 20.00% 29.57%);
     --color-forgegray-900: hsl(207deg 20.00% 24.34%);
@@ -1028,6 +1029,9 @@
   .text-forgegray-200 {
     color: var(--color-forgegray-200);
   }
+  .text-forgegray-400 {
+    color: var(--color-forgegray-400);
+  }
   .text-forgegray-700 {
     color: var(--color-forgegray-700);
   }
@@ -1535,14 +1539,6 @@
   &:hover {
     box-shadow: 0 1px 0 0.5px var(--kbd-color-border);
     top: 1px;
-  }
-}
-@layer components {
-  .forge-menu-highlight {
-    border-left-color: var(--color-forgegray-50);
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-forgegray-50);
   }
 }
 .scrollbox:has(.scrollable) {
